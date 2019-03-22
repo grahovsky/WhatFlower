@@ -12,6 +12,7 @@
 		B573AD9C224570F200A2785A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B573AD9A224570F200A2785A /* Main.storyboard */; };
 		B573AD9E224570F300A2785A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B573AD9D224570F300A2785A /* Assets.xcassets */; };
 		B573ADA1224570F300A2785A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B573AD9F224570F300A2785A /* LaunchScreen.storyboard */; };
+		B573ADA9224571C000A2785A /* FlowerClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B573ADA8224571BF00A2785A /* FlowerClassifier.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		B573AD9D224570F300A2785A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B573ADA0224570F300A2785A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B573ADA2224570F300A2785A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B573ADA8224571BF00A2785A /* FlowerClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FlowerClassifier.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				B573AD9D224570F300A2785A /* Assets.xcassets */,
 				B573AD9F224570F300A2785A /* LaunchScreen.storyboard */,
 				B573ADA2224570F300A2785A /* Info.plist */,
+				B573ADA8224571BF00A2785A /* FlowerClassifier.mlmodel */,
 			);
 			path = WhatFlower;
 			sourceTree = "<group>";
@@ -135,6 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B573ADA9224571C000A2785A /* FlowerClassifier.mlmodel in Sources */,
 				B573AD99224570F200A2785A /* ViewController.swift in Sources */,
 				B573AD97224570F200A2785A /* AppDelegate.swift in Sources */,
 			);
