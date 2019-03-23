@@ -24,6 +24,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         //imagePicker.sourceType = .photoLibrary
         imagePicker.allowsEditing = true
         
+        imageView.contentMode = .scaleAspectFit
+        
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -32,11 +34,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             
             imageView.image = userPickedImage
             
-            guard let ciimage = CIImage(image: userPickedImage) else {
+            guard let convertedCIImage = CIImage(image: userPickedImage) else {
                 fatalError("Could not convert CIImage")
             }
             
-            detect(image: ciimage)
+            detect(image: convertedCIImage)
             
         }
         
@@ -56,7 +58,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             }
             
             if let firstResult = results.first {
-                self.navigationItem.title = firstResult.identifier
+                self.navigationItem.title = firstResult.identifier.capitalized
             }
             
         }
