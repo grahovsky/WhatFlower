@@ -13,21 +13,33 @@
         <!--View Controller-->
         <scene sceneID="iVM-ax-uP9">
             <objects>
-                <viewController id="Iah-Ky-ov3" customClass="ViewController" customModule="SeeFood" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Iah-Ky-ov3" customClass="ViewController" customModule="WhatFlower" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bBc-bs-JOX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7fk-B1-0ry">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="375"/>
                             </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EZs-Pn-m9b">
+                                <rect key="frame" x="0.0" y="439" width="375" height="228"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="228" id="zWB-pt-hK9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="7fk-B1-0ry" firstAttribute="bottom" secondItem="E8U-gV-VGL" secondAttribute="bottom" id="Ael-gP-oVF"/>
+                            <constraint firstItem="7fk-B1-0ry" firstAttribute="bottom" secondItem="EZs-Pn-m9b" secondAttribute="top" id="Ael-gP-oVF"/>
                             <constraint firstItem="7fk-B1-0ry" firstAttribute="top" secondItem="E8U-gV-VGL" secondAttribute="top" id="LDl-Ts-qVO"/>
+                            <constraint firstItem="EZs-Pn-m9b" firstAttribute="leading" secondItem="E8U-gV-VGL" secondAttribute="leading" id="PvZ-EW-7Xc"/>
+                            <constraint firstItem="E8U-gV-VGL" firstAttribute="bottom" secondItem="EZs-Pn-m9b" secondAttribute="bottom" id="gYB-pL-e5o"/>
                             <constraint firstItem="7fk-B1-0ry" firstAttribute="trailing" secondItem="E8U-gV-VGL" secondAttribute="trailing" id="jjp-Wj-Lt1"/>
                             <constraint firstItem="7fk-B1-0ry" firstAttribute="leading" secondItem="E8U-gV-VGL" secondAttribute="leading" id="mOc-qM-1xW"/>
+                            <constraint firstItem="E8U-gV-VGL" firstAttribute="trailing" secondItem="EZs-Pn-m9b" secondAttribute="trailing" id="uh3-p1-tUe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="E8U-gV-VGL"/>
                     </view>
@@ -40,11 +52,13 @@
                     </navigationItem>
                     <connections>
                         <outlet property="imageView" destination="7fk-B1-0ry" id="KOG-lk-ECU"/>
+                        <outlet property="infoTextView" destination="EZs-Pn-m9b" id="Lkd-hz-bJt"/>
+                        <outlet property="infoTextViewHeight" destination="zWB-pt-hK9" id="gjj-7a-jql"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zQh-g9-jxV" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1911" y="108"/>
+            <point key="canvasLocation" x="1909.5999999999999" y="107.49625187406298"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5Ce-5b-jeS">

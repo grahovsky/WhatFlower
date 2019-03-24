@@ -15,6 +15,8 @@ import SwiftyJSON
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var infoTextView: UITextView!
+    @IBOutlet weak var infoTextViewHeight: NSLayoutConstraint!
     
     let imagePicker = UIImagePickerController()
     
@@ -29,6 +31,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         imagePicker.allowsEditing = true
         
         imageView.contentMode = .scaleAspectFit
+        
+        infoTextViewHeight.constant = 0
         
     }
     
@@ -104,12 +108,32 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             { (response) in
             if response.result.isSuccess {
                 print("Sucess! Got the wikipedia info")
-                print(response)
+                //print(response)
+                
+                let wikiJSON: JSON = JSON(response.result.value!)
+                //print(wikiJSON)
+                self.updateInfo(json: wikiJSON)
+                
             }
             else {
                 print("Error \(response.result.error!)")
             }
         }
+        
+    }
+    
+    func updateInfo(json: JSON) {
+        
+        let pageid = json["query"]["pageids"][0].stringValue
+        
+        guard pageid != "" else {
+            return
+        }
+        
+        let textInfo = json["query"]["pages"][pageid]["extract"].stringValue
+        
+        infoTextViewHeight.constant = 228
+        infoTextView.text = textInfo
         
     }
     
