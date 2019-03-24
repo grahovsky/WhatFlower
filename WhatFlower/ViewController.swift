@@ -39,6 +39,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
+        infoTextView.text = ""
+        infoTextViewHeight.constant = 0
+        
         if let userPickedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
             
             imageView.image = userPickedImage
@@ -47,7 +50,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 fatalError("Could not convert CIImage")
             }
             
-            detect(image: convertedCIImage)
+            DispatchQueue.main.async {
+                self.detect(image: convertedCIImage)
+            }
             
         }
         
@@ -136,11 +141,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         let flowerImageURL = json["query"]["pages"][pageid]["thumbnail"]["source"].stringValue
         
-        self.imageView.contentMode = .scaleAspectFill
-        self.imageView.sd_setImage(with: URL(string: flowerImageURL), completed: nil)
+        if !flowerImageURL.isEmpty {
+            self.imageView.contentMode = .scaleAspectFill
+            self.imageView.sd_setImage(with: URL(string: flowerImageURL), completed: nil)
+        }
         
-        infoTextViewHeight.constant = 228
-        infoTextView.text = textInfo
+        if !textInfo.isEmpty {
+            infoTextViewHeight.constant = 228
+            infoTextView.text = textInfo
+        }
         
     }
     
